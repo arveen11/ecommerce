@@ -4,11 +4,7 @@
 
 		<center><h1>{{ p.name }}</h1>
         <img src="{{ p.image.url }}" alt="{{ p.name }}" /><br>
-          Categor{{ categories.count|pluralize:"y,ies" }}:
-    {% for c in categories %}
-      <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-      {% if not forloop.last %}, {% endif %}
-    {% endfor %}
+       
         <br><p><strong>Description:</strong> <br>
         {{ p.description }}</p>
 

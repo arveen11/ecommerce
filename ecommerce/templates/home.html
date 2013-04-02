@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}JMD Seafoods | Home{% endblock %}
+{% block content %}
+
+    <!-- End Navigation -->
+
+      <div class="row">
+
+  <!-- Side Bar -->
+
+        <div class="large-4 small-12 columns">
+
+          <img src="static/img/jmd-logo.png">
+
+          <div class="hide-for-small panel">
+            <h3>JMD Seafoods Inc.</h3>
+            <h5 class="subheader">
+                Welcome to JMD Seafoods Inc., Where we sell fresh fishes. Please feel free to explore our website. Have a nice day!
+            </h5>
+          </div>
+
+
+
+        </div>
+
+    <!-- End Side Bar -->
+
+
+    <!-- Thumbnails -->
+
+    <div class="large-8 columns">
+      <div class="row">
+      {% for p in p %}
+        <div class="large-4 small-6 columns">
+          <a href="product/{{ p.slug }}">
+            {% if p.image %}
+              <img src="{{ p.image.url }}">
+            {% else %}
+              <img src="http://placehold.it/500x500&text=Thumbnail">
+            {% endif %}
+            <div class="panel">
+              <h5>{{ p.name }}</h5>
+              <h6 class="subheader">P {{ p.price }}</h6>
+          </a>
+            </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
+    <!-- End Thumbnails -->
+
+
+    <!-- Managed By -->
+          <div class="row">
+            <div class="large-12 columns">
+              <div class="panel">
+                <div class="row">
+
+                  <div class="large-2 small-6 columns">
+                    <img src="http://placehold.it/300x300&text=Site Owner">
+                  </div>
+
+                  <div class="large-10 small-6 columns">
+                    <strong>This Site Is Managed By<hr/></strong>
+
+                    Ecom Dev't Team
+                    <p>
+                        <ul>
+                            <li>Joanel Divinagracia - Developer</li>
+                            <li>Arveen Landa - Developer/Designer</li>
+                            <li>Kevin Gallarin - Designer</li>
+                            <li>Carlo Baltazar - Developer</li>
+                        </ul>
+
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+    <!-- End Managed By -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+{% endblock %}

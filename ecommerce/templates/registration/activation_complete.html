@@ -1,0 +1,14 @@
+{% extends "registration/registration_base.html" %}
+{% block title %}Activation complete{% endblock %}
+{% block body %}
+
+<div data-alert class="alert-box success">
+    Thanks, activation complete!  You may now <a href='{% url 'auth_login' %}' style="color: #c11c11;">Login</a> using the username and password you set at registration.
+   <a href="#" class="close">&times;</a>
+</div>
+
+<center><a href="/">Back</a></center>
+
+{% endblock %}
+
+

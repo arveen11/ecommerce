@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+
+        <div data-alert class="alert-box alert">
+          Your username and password didn't match. Please try again.
+          <a href="#" class="close">&times;</a>
+        </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+        {% csrf_token %}
+        <center>
+        <table>
+            <tr>
+
+                <td><label for="username">User name:</label></td>
+                {% if form.errors %}
+                <td><input type="text" name="username" class="error" value="" id="username"></td>
+                {% else %}
+                <td><input type="text" name="username" value="" id="username"></td>
+                {% endif %}
+                <td></td>
+            </tr>
+        <tr>
+                <td><label for="password">Password:</label></td>
+                {% if form.errors %}
+                <td><input type="password" name="password" class="error" value="" id="password"></td>
+                {% else %}
+                <td><input type="password" name="password" value="" id="password"></td>
+                {% endif %}
+                <td></td>
+            </tr>
+
+        <tr>
+            <td></td>
+            <td><a href="/accounts/password/reset/">Forgot Password?</a></td>
+            <td></td>
+        </tr>   
+
+        <tr>
+            <td></td>
+            <td><a href="/accounts/register">New User? Sign up Now!</a></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><button class="button">Login</button></td>
+
+            <td><input type="hidden" name="next" value="{{ next }}" /></td>
+        </tr>
+        </table>
+        </center>
+
+        </form>
+
+{% endblock %}

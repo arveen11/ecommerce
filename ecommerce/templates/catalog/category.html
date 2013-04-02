@@ -1,0 +1,28 @@
+{% extends "catalog.html" %}
+
+{% block content %}
+    <h1>{{ c.name }}</h1>
+    <p>{{ c.description }}</p>
+    <br /><br />
+    {% for p in products %}
+        <div class="product_thumbnail">
+            <a href="{{ p.get_absolute_url }}">
+                <img src="{{ MEDIA_URL }}{{ p.image }}" alt="{{ p.name }}">
+                <br>{{ p.name }}
+            </a>
+            {% if p.sale_price %}
+                Was: <del>$ {{ p.old_price }}</del>
+                <br />
+                Now: $ {{ p.price }}
+            {% else %}
+                Price: $ {{ p.price }}
+            {% endif %}
+        </div>
+        <br /><br />
+        [add to cart button]
+        <br /><br />
+        <div class="cb"><br /><br /></div>
+        <h3>Product Description</h3>
+        {{ p.description }}
+    {% endfor %}
+{% endblock %}

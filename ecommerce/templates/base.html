@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+    <head>
+        {% load staticfiles %}
+            <link rel="stylesheet" href="{% static "reveal/reveal.css" %}">
+
+        <!-- Attach necessary scripts -->
+        <script type="text/javascript" src="{% static "reveal/jquery-1.4.4.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "reveal/jquery.reveal.js" %}"></script>
+
+
+         <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
+         <link rel="stylesheet" href="{% static "css/foundation.css" %}" />
+         <script src="{%static "js/foundation.min.js" %}"></script>
+         <script src="{%static "js/vendor/custom.modernizr.js" %}"></script>
+         <link rel="shortcut icon" href="static/img/jmd-logo.png">
+
+
+        <title>JMD Seafoods Inc. - {{ title }}</title>
+        {% block scripts %}{% endblock %}
+    </head>
+    <body>
+
+       <div class="row">
+    <div class="large-12 columns">
+
+    <!-- Navigation -->
+
+      <div class="row">
+        <div class="large-12 columns">
+
+          <nav class="top-bar">
+            <ul class="title-area">
+              <!-- Title Area -->
+              <li class="name">
+                <h1>
+                  <a href="/">
+                    JMD Seafoods Inc.
+                  </a>
+                </h1>
+              </li>
+              <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+              <!-- Right Nav Section -->
+              <ul class="left">
+                <li class="divider"></li>
+                <li><a href="/">Home</a></li>
+                <li class="divider"></li>
+                <li><a href="/about">About Us</a></li>
+                <li class="divider"></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li class="divider"></li>
+
+
+              </ul>
+
+
+              <ul class="right">
+                <li><a href="/cart">Cart</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/accounts/profile">Welcome {{ user.username }}</a></li>
+                <li><a href="/logout">Logout</a></li>
+                {% else %}
+                <li><a href="/login">Login</a></li>
+                <li class="divider"></li>
+                <li><a href="/accounts/register">Register</a></li>
+                {% endif %}
+
+
+              </ul>
+            </section>
+          </nav>
+          <!-- End Top Bar -->
+        </div>
+      </div><br><br>
+
+        {% block content %}
+
+
+        {% endblock %}
+
+
+
+      <footer class="row">
+        <div class="large-12 columns"><hr />
+          <div class="row">
+
+            <div class="large-6 columns">
+              <p>&copy; JMD Seafoods Inc.</p>
+            </div>
+
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
+<!-- REVEAL -->
+
+<div id="myModal" class="reveal-modal">
+  <center>
+    {% with cart_item_count as cart_count %}
+    <a href="{% url 'show_cart' %}">
+    Shopping Cart
+    <br />
+    {{ cart_count }} Item{{ cart_count|pluralize }}
+    </a>
+  {% endwith %}
+  <p><a href="/checkout"><button class="button">Checkout</button></a></p>
+  <a class="close-reveal-modal">&#215;</a>
+  </center>
+</div>
+
+
+
+</div>
+<script src="{%static "js/vendor/zepto.js" %}"></script>
+<script src="{%static "js/foundation/foundation.js" %}"></script>
+<script src="{%static "js/foundation/foundation.joyride.js" %}"></script>
+<script src="{%static "js/foundation/foundation.reveal.js" %}"></script>
+<script src="{%static "js/foundation/foundation.dropdown.js" %}"></script>
+<script src="{%static "js/foundation/foundation.alerts.js" %}"></script>
+
+
+</body>
+</html>

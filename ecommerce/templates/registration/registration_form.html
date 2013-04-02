@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+      
+    <div style="width: 60%;">
+    <form action="." method="post">
+       
+
+        <h3>Sign Up For Your Account</h3>
+            {% if form.errors %}
+              <div data-alert class="alert-box alert">
+              Please correct the errors below.
+              <a href="#" class="close">&times;</a>
+            </div>
+        {% endif %}
+        {{ form.as_p }}
+      
+        <button class="button">Register</button>
+  
+    </form>
+
+    </div>
+{% endblock %}

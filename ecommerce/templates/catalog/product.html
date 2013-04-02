@@ -1,0 +1,15 @@
+{% extends "catalog.html" %}
+
+{% block content %}
+
+
+        <img src="{{ p.image.url }}" alt="{{ p.name }}" />
+
+    <h1>{{ p.name }}</h1>
+        <form method="post" action="" style="width: 5%;">
+            {{ form.quantity }}
+            {{ form.product_slug }}
+            <input type="submit" value="Add To Cart" class="small button">
+        </form>
+
+{% endblock %}

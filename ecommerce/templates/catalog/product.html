@@ -2,14 +2,22 @@
 
 {% block content %}
 
+		<center><h1>{{ p.name }}</h1>
+        <img src="{{ p.image.url }}" alt="{{ p.name }}" /><br>
+          Categor{{ categories.count|pluralize:"y,ies" }}:
+    {% for c in categories %}
+      <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+      {% if not forloop.last %}, {% endif %}
+    {% endfor %}
+        <br><p><strong>Description:</strong> <br>
+        {{ p.description }}</p>
 
-        <img src="{{ p.image.url }}" alt="{{ p.name }}" />
-
-    <h1>{{ p.name }}</h1>
+    
         <form method="post" action="" style="width: 5%;">
+             
             {{ form.quantity }}
             {{ form.product_slug }}
             <input type="submit" value="Add To Cart" class="small button">
-        </form>
+        </form></center>
 
 {% endblock %}

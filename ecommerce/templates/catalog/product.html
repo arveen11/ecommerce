@@ -1,19 +1,28 @@
 {% extends "catalog.html" %}
 
 {% block content %}
+    <div class="large-6 columns">
+    {% if p.image %}
+        <img src="{{ p.image.url }}" alt="{{ p.name }}" width="500" height="500" />
+    {% else %}
+        <img src="http://placehold.it/500x500&text=Thumbnail">
+    {% endif %}
+    </div>
+    <div class="large-6 columns">
+    <h1>{{ p.name }}</h1>
+    <div style="border:1px solid; box-shadow: 10px 10px 5px #888888;">
+    <h4>Product Description</h4>
+        <pre>{{ p.description }}</pre>
+    </div>
+    <div style="margin-bottom: 5%;">
 
-		<center><h1>{{ p.name }}</h1>
-        <img src="{{ p.image.url }}" alt="{{ p.name }}" /><br>
-       
-        <br><p><strong>Description:</strong> <br>
-        {{ p.description }}</p>
-
-    
-        <form method="post" action="" style="width: 5%;">
-             
+    </div>
+    <div>
+        <form method="post" action="" style="width: 10%;">
             {{ form.quantity }}
             {{ form.product_slug }}
             <input type="submit" value="Add To Cart" class="small button">
-        </form></center>
-
+        </form>
+    </div>
+    </div>
 {% endblock %}

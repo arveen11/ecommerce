@@ -3,7 +3,7 @@ import os
 
 PROJECT_DIR = os.path.dirname(__file__)
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -153,6 +153,7 @@ INSTALLED_APPS = (
     'contact',
     'cart',
     'checkout',
+    'registration',
     # Uncomment the next line to enable the admin:
     'grappelli',
     'django.contrib.admin',
